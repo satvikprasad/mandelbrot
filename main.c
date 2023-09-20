@@ -46,8 +46,10 @@ int main(int argc, char **argv) {
         ClearBackground(RAYWHITE);
 
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
-            center_x += GetMouseDelta().x;
-            center_y -= GetMouseDelta().y;
+            center_x -=
+                ((float)width / (float)screen_width) * GetMouseDelta().x;
+            center_y +=
+                ((float)height / (float)screen_height) * GetMouseDelta().y;
         }
 
         int top = center_y + height / 2;
